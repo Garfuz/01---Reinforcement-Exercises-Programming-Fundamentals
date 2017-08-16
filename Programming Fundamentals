@@ -1,0 +1,87 @@
+#Trains Array
+
+trains = [
+{train: "72C", frequency_in_minutes: 15, direction: "north"},
+{train: "72D", frequency_in_minutes: 15, direction: "south"},
+{train: "610", frequency_in_minutes: 5, direction: "north"},
+{train: "611", frequency_in_minutes: 5, direction: "south"},
+{train: "80A", frequency_in_minutes: 30, direction: "east"},
+{train: "80B", frequency_in_minutes: 30, direction: "west"},
+{train: "110", frequency_in_minutes: 15, direction: "north"},
+{train: "111", frequency_in_minutes: 15, direction: "south"}
+]
+
+
+# Exercise 1
+train_111 = ""
+trains.each do |train|
+  if train[:train] == "111"
+    train_111 = train[:direction]
+  end
+end
+puts "Train 111 is directed to #{train_111}"
+
+
+# Exercise 2
+train_80B = ""
+trains.each do |train|
+  if train[:train] == "80B"
+    train_80B = train[:frequency_in_minutes]
+  end
+end
+puts "The frequency of train 80B is #{train_80B} minutes"
+
+
+# Exercise 3
+train_610 = ""
+trains.each do |train|
+  if train[:train] == "610"
+    train_610 = train[:direction]
+  end
+end
+puts "Train 610 is directed to #{train_610}"
+
+
+# Exercise 4
+north_trains = []
+trains.each do |train|
+  if train[:direction] == "north"
+    north_trains << train[:train]
+  end
+end
+puts "Trains #{north_trains.join(", ")} are heading north"
+
+
+# Exercise 5
+east_trains = []
+trains.each do |train|
+  if train[:direction] == "east"
+    east_trains << train[:train]
+  end
+end
+puts "Train #{east_trains.join(", ")} is heading east"
+
+
+# Exercise 6
+def rains_by_direction(trains, direction)
+  trains.each do |train|
+    if train[:direction] == direction
+      puts "Train #{train[:train]} is heading in the #{direction}ern direction"
+    end
+  end
+end
+
+puts "These trains go north"
+trains_by_direction(trains, "north")
+
+puts "These trains go east"
+trains_by_direction(trains, "east")
+
+
+# Exercise 7
+trains.each do |train|
+  if train[:train] == "80B"
+    train[:first_departure_time] = 6
+  end
+end
+puts trains
